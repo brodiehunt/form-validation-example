@@ -4,11 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client side validation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="style.css" rel="stylesheet" type="text/css">
 
 </head>
   <body>
-    
+    <div class="form-container">
+      <h2 class="form-title">Create Your Account</h2>
+      <span class="sign-in">All ready have and account? Sign in <a href=''>here.</a></span>
+      <form class="form" novalidate>
+        <div class="input-container">
+          <label for="email">Email:</label>
+          <input  class="form-input" type="email" id="email" name="email" required>
+          <span class="input-error" id="email-error">Lets put an error here to style</span>
+        </div>
+        <div class="input-container col">
+          <div class="input-container">
+            <label for="country">Country:</label>
+            <input  class="form-input" type="email" id="country" name="country" required>
+            <span class="input-error" id="email-error"></span>
+          </div>
+          <div class="input-container">
+            <label for="zip">Zip Code:</label>
+            <input  class="form-input" type="email" id="zip" name="zip"  required>
+            <span class="input-error" id="zip-error"></span>
+          </div>
+        </div>
+        <div class="input-container">
+          <i class='bx bx-info-circle info-toggle' id="infoToggle"></i>
+          <p class="info-bubble">Password must be at least 8 characters, contain 1 uppercase letter, 1 special character</p>
+          <label for="password">Password:</label>
+          <input class="form-input" type="" id="password" name="password" required>
+          <span class="input-error" id="password-error"></span>
+        </div>
+        <div class="input-container">
+          <label for="password-confirm">Confirm Password:</label>
+          <input class="form-input" type="" id="password-confirm" name="password-confirm" required>
+          <span class="input-error" id="password-confirm-error"></span>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
