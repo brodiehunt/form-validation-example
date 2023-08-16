@@ -25,12 +25,18 @@
         <div class="input-container col">
           <div class="input-container">
             <label for="country">Country:</label>
-            <input  class="form-input" type="email" id="country" name="country" required>
-            <span class="input-error" id="email-error"></span>
+            <select id="country" class="form-input" name="country" placeholder="Choose Country" required>
+              <option value selected disabled>Choose Country</option>
+              <option value="AUS">Australia</option>
+              <option value="NZ">New Zealand</option>
+              <option value="USA">USA</option>
+            </select>
+            <!-- <input  class="form-input" type="email" id="country" name="country" required> -->
+            <span class="input-error" id="country-error"></span>
           </div>
           <div class="input-container">
             <label for="zip">Zip Code:</label>
-            <input  class="form-input" type="email" id="zip" name="zip"  required>
+            <input  class="form-input" type="email" id="zip" name="zip" minlength="4" maxlength="4" pattern="^[0-9]+$" required>
             <span class="input-error" id="zip-error"></span>
           </div>
         </div>
