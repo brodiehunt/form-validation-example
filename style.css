@@ -45,6 +45,20 @@ body {
   font-weight: 400;
 }
 
+.submit-error {
+  display: none;
+  font-size: 0.8rem;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.7);
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.show-submit-error {
+  display: block;
+}
+
 .input-container {
   position: relative;
   width: 100%;
@@ -122,6 +136,19 @@ body {
 
 .input-container .form-input:focus {
   outline-color: var(--primary);
+}
+
+.input-container .form-input:valid {
+  outline-color: green;
+}
+
+.input-container .form-input:invalid {
+  /* outline-color: red; */
+  /* border-color: red; */
+}
+
+.form .input-container .invalid {
+  border-color: red;
 }
 
 button {

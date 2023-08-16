@@ -16,10 +16,11 @@
       <h2 class="form-title">Create Your Account</h2>
       <span class="sign-in">All ready have and account? Sign in <a href=''>here.</a></span>
       <form class="form" novalidate>
+        <p class="submit-error">Please fix the outlined feilds</p>
         <div class="input-container">
           <label for="email">Email:</label>
-          <input  class="form-input" type="email" id="email" name="email" required>
-          <span class="input-error" id="email-error">Lets put an error here to style</span>
+          <input  class="form-input" type="email" id="email" name="email" minlength="7" required>
+          <span class="input-error" id="email-error"></span>
         </div>
         <div class="input-container col">
           <div class="input-container">
@@ -37,7 +38,7 @@
           <i class='bx bx-info-circle info-toggle' id="infoToggle"></i>
           <p class="info-bubble">Password must be at least 8 characters, contain 1 uppercase letter, 1 special character</p>
           <label for="password">Password:</label>
-          <input class="form-input" type="" id="password" name="password" required>
+          <input class="form-input" type="" id="password" name="password" minlength="8" pattern="(?=.*[A-Z])(?=.*[!@$\.%]).*" required>
           <span class="input-error" id="password-error"></span>
         </div>
         <div class="input-container">
