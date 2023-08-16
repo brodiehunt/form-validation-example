@@ -1,3 +1,5 @@
+
+// nodes for form input elements and error boxes
 const form = document.querySelector('.form');
 const submitErrorMessage = document.querySelector('.submit-error');
 const emailInput = document.getElementById('email');
@@ -8,115 +10,10 @@ const zipInput = document.getElementById('zip');
 const zipError = document.getElementById('zip-error');
 const passwordInput = document.getElementById('password');
 const passwordError = document.getElementById('password-error');
-
 const passwordConfirmInput = document.getElementById('password-confirm');
 const passwordConfirmError = document.getElementById('password-confirm-error');
 
-
-emailInput.addEventListener('input', (event) => {
-  if (!emailInput.validity.valid) {
-    showEmailError();
-  } else {
-    emailError.textContent = '';
-    emailInput.classList.remove('invalid');
-  }
-
-})
-
-countryInput.addEventListener('input', () => {
-  if (!countryInput.validity.valid) {
-    showCountryError();
-  } else {
-    countryError.textContent = '';
-    countryInput.classList.remove('invalid');
-  }
-})
-
-zipInput.addEventListener('input', (event) => {
-  if (!zipInput.validity.valid) {
-    showZipError();
-  } else {
-    zipError.textContent = '';
-    zipInput.classList.remove('invalid');
-  }
-})
-
-passwordInput.addEventListener('input', (event) => {
-  if (!passwordInput.validity.valid) {
-    showPasswordError();
-  } else {
-    passwordError.textContent = '';
-    passwordInput.classList.remove('invalid');
-  }
-})
-
-passwordConfirmInput.addEventListener('input', (event) => {
-  console.log(passwordConfirmInput.value, passwordInput.value)
-  if (passwordConfirmInput.value !== passwordInput.value) {
-    passwordConfirmInput.setCustomValidity("Passwords must match");
-  } else {
-    passwordConfirmInput.setCustomValidity('');
-  }
-  if (!passwordConfirmInput.validity.valid) {
-    showPasswordConfirmError();
-  } else {
-    passwordConfirmError.textContent = '';
-    passwordConfirmInput.classList.remove('invalid');
-  }
-})
-
-form.addEventListener('submit', (event) => {
-  let errorMessageNeeded = false;
-  
-  if (!emailInput.validity.valid) {
-    showEmailError()
-    emailInput.classList.add('invalid');
-    errorMessageNeeded = true;
-  } else {
-    emailInput.classList.remove('invalid');
-  };
-
-  if (!countryInput.validity.valid) {
-    showCountryError()
-    countryInput.classList.add('invalid')
-    errorMessageNeeded = true;
-  } else {
-    countryInput.classList.remove('invalid');
-  };
-
-  if (!zipInput.validity.valid) {
-    showZipError();
-    zipInput.classList.add('invalid');
-    errorMessageNeeded = true;
-  } else {
-    zipInput.classList.remove('invalid');
-  }
-
-  if (!passwordInput.validity.valid) {
-    showPasswordError()
-    passwordInput.classList.add('invalid');
-    errorMessageNeeded = true;
-  } else {
-    passwordInput.classList.remove('invalid');
-  }
-
-  if (!passwordConfirmInput.validity.valid) {
-    showPasswordConfirmError();
-    passwordConfirmInput.classList.add('invalid');
-    errorMessageNeeded = true;
-  } else {
-    passwordConfirmInput.classList.remove('invalid');
-  }
-
-  if (errorMessageNeeded) {
-    submitErrorMessage.classList.add('show-submit-error');
-    event.preventDefault();
-  } else {
-    submitErrorMessage.classList.remove('show-submit-error');
-  }
-
-})
-
+// Functions that check if form feild is valid and displays relevant message
 const showEmailError = () => {
   if (emailInput.validity.valueMissing) {
     emailError.textContent = 'You need to enter an email address.';
@@ -168,3 +65,109 @@ const showPasswordConfirmError = () => {
     passwordConfirmInput.setCustomValidity('');
   }
 }
+
+// Event listeners for input on each form feild, checks if feild is valid
+emailInput.addEventListener('input', () => {
+  if (!emailInput.validity.valid) {
+    showEmailError();
+  } else {
+    emailError.textContent = '';
+    emailInput.classList.remove('invalid');
+  }
+
+})
+
+countryInput.addEventListener('input', () => {
+  if (!countryInput.validity.valid) {
+    showCountryError();
+  } else {
+    countryError.textContent = '';
+    countryInput.classList.remove('invalid');
+  }
+})
+
+zipInput.addEventListener('input', () => {
+  if (!zipInput.validity.valid) {
+    showZipError();
+  } else {
+    zipError.textContent = '';
+    zipInput.classList.remove('invalid');
+  }
+})
+
+passwordInput.addEventListener('input', () => {
+  if (!passwordInput.validity.valid) {
+    showPasswordError();
+  } else {
+    passwordError.textContent = '';
+    passwordInput.classList.remove('invalid');
+  }
+})
+
+passwordConfirmInput.addEventListener('input', () => {
+  if (passwordConfirmInput.value !== passwordInput.value) {
+    passwordConfirmInput.setCustomValidity("Passwords must match");
+  } else {
+    passwordConfirmInput.setCustomValidity('');
+  }
+  if (!passwordConfirmInput.validity.valid) {
+    showPasswordConfirmError();
+  } else {
+    passwordConfirmError.textContent = '';
+    passwordConfirmInput.classList.remove('invalid');
+  }
+})
+
+// Checks if form feilds are valid, prevents submit if they are not
+// Highlights invalid feilds as red.
+form.addEventListener('submit', (event) => {
+  let errorMessageNeeded = false;
+  
+  if (!emailInput.validity.valid) {
+    showEmailError()
+    emailInput.classList.add('invalid');
+    errorMessageNeeded = true;
+  } else {
+    emailInput.classList.remove('invalid');
+  };
+
+  if (!countryInput.validity.valid) {
+    showCountryError()
+    countryInput.classList.add('invalid')
+    errorMessageNeeded = true;
+  } else {
+    countryInput.classList.remove('invalid');
+  };
+
+  if (!zipInput.validity.valid) {
+    showZipError();
+    zipInput.classList.add('invalid');
+    errorMessageNeeded = true;
+  } else {
+    zipInput.classList.remove('invalid');
+  }
+
+  if (!passwordInput.validity.valid) {
+    showPasswordError()
+    passwordInput.classList.add('invalid');
+    errorMessageNeeded = true;
+  } else {
+    passwordInput.classList.remove('invalid');
+  }
+
+  if (!passwordConfirmInput.validity.valid) {
+    showPasswordConfirmError();
+    passwordConfirmInput.classList.add('invalid');
+    errorMessageNeeded = true;
+  } else {
+    passwordConfirmInput.classList.remove('invalid');
+  }
+
+  if (errorMessageNeeded) {
+    submitErrorMessage.classList.add('show-submit-error');
+    event.preventDefault();
+  } else {
+    submitErrorMessage.classList.remove('show-submit-error');
+  }
+
+})
