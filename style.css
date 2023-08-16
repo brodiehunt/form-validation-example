@@ -123,7 +123,6 @@ body {
   font-size: 1rem;
   padding: 0.3rem;
   border: none;
-  /* outline: none; */
   box-shadow: none;
   border: 1px solid hwb(48 45% 53%);
   border-radius: 5px;
@@ -140,11 +139,6 @@ body {
 
 .input-container .form-input:valid {
   outline-color: green;
-}
-
-.input-container .form-input:invalid {
-  /* outline-color: red; */
-  /* border-color: red; */
 }
 
 .form .input-container .invalid {
